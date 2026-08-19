@@ -1,13 +1,13 @@
-GOOZDELISH WEBSITE UPDATE
+GoozDelish image-path fix
 
-Upload/replace these in the ROOT of your GitHub repository:
+Your gallery images (gallery-01.jpg through gallery-50.jpg) are already uploaded at the ROOT of GitHub.
+This corrected index.html and gallery.html now reference those root image files directly.
+
+Replace ONLY:
 - index.html
 - gallery.html
 - order.html
-- assets/  (upload the whole folder, including assets/gallery)
 
-Important:
-Do not rename gallery.html or order.html.
-GitHub Pages may take 1-3 minutes to redeploy after upload.
+Leave gallery-01.jpg ... gallery-50.jpg exactly where they are.
 
-The Gallery contains all 50 photos uploaded in this chat, optimized for web and watermarked "GoozDelish".
+GoogleAppsScript_Final.gs is included only for the Google Sheet update step.
