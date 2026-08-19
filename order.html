@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Order | GoozDelish</title>
+<style>
+:root{--pink:#cf6384;--dark:#563b35;--cream:#fffaf7;--soft:#fff0f4;--line:#ead1d8}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--dark);line-height:1.5}
+a{text-decoration:none;color:inherit}.wrap{width:min(860px,92%);margin:auto}
+nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{min-height:68px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font-family:Georgia,serif;font-size:1.65rem;font-style:italic;font-weight:700;color:var(--pink)}
+.btn{display:inline-block;background:var(--pink);color:#fff;padding:11px 17px;border-radius:999px;font-weight:700;border:none;cursor:pointer}
+main{padding:48px 0 72px}
+.head{text-align:center;max-width:680px;margin:0 auto 30px}
+h1{font-family:Georgia,serif;font-size:clamp(2.4rem,6vw,4rem);margin:0 0 10px}
+.head p{color:#7c625a}
+form{background:#fff;border-radius:28px;padding:30px;box-shadow:0 12px 36px rgba(86,59,53,.09)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{margin-bottom:18px}.full{grid-column:1/-1}
+label{display:block;font-weight:800;margin-bottom:7px}
+input,select,textarea{width:100%;padding:13px 14px;border:1px solid #dfc7ce;border-radius:14px;font:inherit;background:#fff;color:#4f3934}
+textarea{min-height:110px;resize:vertical}
+.group{border:1px solid #ead6dc;background:#fffafb;border-radius:18px;padding:18px;margin:18px 0}
+.group h3{margin:0 0 12px}
+.option{display:flex;gap:9px;align-items:flex-start;margin:10px 0}
+.option input{width:auto;margin-top:5px}
+.flavour-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.flavour-box{border:1px solid #ead6dc;border-radius:16px;padding:16px;background:#fff}
+.flavour-box h4{margin:0 0 10px;color:#a64c66}
+.notice{background:#fff1f4;border:1px solid #f0cad5;padding:18px;border-radius:18px;margin:18px 0}
+.status{display:none;margin-top:18px;padding:18px;border-radius:16px}
+.status.success{display:block;background:#edf9ef;border:1px solid #b9e0bf}
+.status.error{display:block;background:#fff0f0;border:1px solid #efc3c3}
+.small{font-size:.9rem;color:#856c64}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+footer{text-align:center;padding:30px 0 40px;color:#876d65}
+@media(max-width:680px){.grid,.flavour-columns{grid-template-columns:1fr}form{padding:22px}}
+
+.brand{display:flex;align-items:center;gap:8px;font:italic 700 1.5rem Georgia,serif;color:var(--pink)}.brand img{width:42px;height:42px;object-fit:contain}.links{display:flex;align-items:center;gap:14px;font-weight:700;font-size:.9rem}.links .btn{padding:9px 14px}@media(max-width:760px){.nav{flex-wrap:wrap;padding:8px 0}.links{width:100%;overflow-x:auto;white-space:nowrap;padding-bottom:4px}.links::-webkit-scrollbar{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav">
+<a class="brand" href="index.html"><img src="assets/logos/goozdelish-cat.png" alt="GoozDelish logo"><span>GoozDelish</span></a>
+<div class="links"><a href="index.html">Home</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="client-share.html">Client Share</a><a class="btn" href="order.html">Order Now</a></div>
+</div></nav>
+
+<main><div class="wrap">
+<div class="head">
+<h1>Place an Order</h1>
+<p>Please complete the details below. Your request will be reviewed for availability before confirmation.</p>
+</div>
+
+<form id="orderForm">
+<div class="grid">
+<div class="field"><label for="name">Name *</label><input id="name" name="name" required></div>
+<div class="field"><label for="contact">Reachable contact information *</label><input id="contact" name="contact" placeholder="Phone, email or Instagram" required></div>
+
+<div class="field"><label for="foundUs">How did you find us? *</label>
+<select id="foundUs" name="foundUs" required>
+<option value="">Select</option><option>Instagram</option><option>Facebook</option><option>Google</option><option>Friend / Family</option><option>Returning Customer</option><option>Other</option>
+</select></div>
+
+<div class="field"><label for="servings">Servings count *</label><input id="servings" name="servings" type="number" min="1" inputmode="numeric" placeholder="Example: 20" required></div>
+
+<div class="field"><label for="pickupDate">Pickup date *</label><input id="pickupDate" name="pickupDate" type="date" required></div>
+<div class="field"><label for="pickupTime">Pickup time *</label><input id="pickupTime" name="pickupTime" type="time" required></div>
+
+<div class="field full"><label for="cakeMessage">What would you like written on the cake?</label><input id="cakeMessage" name="cakeMessage" placeholder="Example: Happy Birthday Sarah"></div>
+</div>
+
+<div class="group">
+<h3>Choose flavour *</h3>
+<div class="flavour-columns">
+<div class="flavour-box"><h4>Classic Flavours</h4>
+<label class="option"><input type="radio" name="flavour" value="Vanilla" required> Vanilla</label>
+<label class="option"><input type="radio" name="flavour" value="Chocolate"> Chocolate</label>
+<label class="option"><input type="radio" name="flavour" value="Red velvet"> Red velvet</label>
+<label class="option"><input type="radio" name="flavour" value="Cookies and cream"> Cookies and cream</label>
+<label class="option"><input type="radio" name="flavour" value="Tres leches"> Tres leches</label>
+<label class="option"><input type="radio" name="flavour" value="Lemon poppy"> Lemon poppy</label>
+</div>
+<div class="flavour-box"><h4>Premium Flavours</h4>
+<label class="option"><input type="radio" name="flavour" value="Vanilla strawberry compote"> Vanilla strawberry compote</label>
+<label class="option"><input type="radio" name="flavour" value="Mango"> Mango</label>
+<label class="option"><input type="radio" name="flavour" value="Choco fudge"> Choco fudge</label>
+<label class="option"><input type="radio" name="flavour" value="Ferrero"> Ferrero</label>
+<label class="option"><input type="radio" name="flavour" value="Butterscotch"> Butterscotch</label>
+<label class="option"><input type="radio" name="flavour" value="Vanilla raspberry compote"> Vanilla raspberry compote</label>
+<label class="option"><input type="radio" name="flavour" value="Vanilla blueberry compote"> Vanilla blueberry compote</label>
+</div></div>
+</div>
+
+<div class="group">
+<h3>Select your option *</h3>
+<label class="option"><input type="radio" name="option" value="Egg" required> Egg</label>
+<label class="option"><input type="radio" name="option" value="Halal"> Halal</label>
+<label class="option"><input type="radio" name="option" value="Eggless"> Eggless</label>
+</div>
+
+<div class="field">
+<label for="details">Additional order details</label>
+<textarea id="details" name="details" placeholder="Theme, colours, occasion, design notes, allergies or anything else we should know."></textarea>
+</div>
+
+<div class="field">
+<label for="photo">Upload photo reference</label>
+<input id="photo" type="file" accept="image/jpeg,image/png,image/webp">
+<div class="small">JPEG, PNG or WEBP. Maximum 8 MB.</div>
+</div>
+
+<div class="notice">
+<label class="option">
+<input id="agreement" type="checkbox" required>
+<span><strong>I understand and agree that GoozDelish is a home bakery and reference photos are for inspiration only. The final cake may not be an exact 100% match to the reference photo. *</strong></span>
+</label>
+</div>
+
+<div class="actions">
+<button class="btn" type="submit" id="submitBtn">Submit Order</button>
+<button type="reset" class="btn" style="background:#fff;color:#cf6384;border:1px solid #dfb7c3">Clear</button>
+</div>
+
+<div id="status" class="status"></div>
+<p class="small">Your order request will be reviewed for availability. A 50% deposit is required to confirm the order.</p>
+</form>
+</div></main>
+
+<footer><strong>GoozDelish</strong> • Home Bakery • Whitby, Ontario</footer>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyGafFMwz6zgDTBgIEJoRfWjclNyBhrBq-Np64-1oH72LWpZc8vgTzxw1o1Yg1qOeYq8g/exec";
+const form = document.getElementById("orderForm");
+const statusBox = document.getElementById("status");
+const submitBtn = document.getElementById("submitBtn");
+
+function fileToBase64(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>resolve(reader.result.split(",")[1]);
+    reader.onerror=reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+form.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  statusBox.className="status";
+  statusBox.textContent="";
+
+  const photo = document.getElementById("photo").files[0];
+  if(photo && photo.size > 8*1024*1024){
+    statusBox.className="status error";
+    statusBox.textContent="Reference photo must be 8 MB or smaller.";
+    return;
+  }
+
+  submitBtn.disabled=true;
+  submitBtn.textContent="Submitting...";
+
+  try{
+    const payload = {
+      name: document.getElementById("name").value.trim(),
+      contact: document.getElementById("contact").value.trim(),
+      foundUs: document.getElementById("foundUs").value,
+      servings: document.getElementById("servings").value,
+      pickupDate: document.getElementById("pickupDate").value,
+      pickupTime: document.getElementById("pickupTime").value,
+      cakeMessage: document.getElementById("cakeMessage").value.trim(),
+      flavour: document.querySelector('input[name="flavour"]:checked')?.value || "",
+      option: document.querySelector('input[name="option"]:checked')?.value || "",
+      details: document.getElementById("details").value.trim(),
+      agreement: document.getElementById("agreement").checked
+    };
+
+    if(photo){
+      payload.photo = {
+        fileName: photo.name,
+        mimeType: photo.type,
+        data: await fileToBase64(photo)
+      };
+    }
+
+    const res = await fetch(SCRIPT_URL,{
+      method:"POST",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+
+    if(!data.success) throw new Error(data.message || "Unable to save order.");
+
+    statusBox.className="status success";
+    statusBox.innerHTML = `
+      <strong>Thank you for placing your order with us! 💗</strong><br><br>
+      Kindly message us back for your <strong>quote</strong> and the <strong>50% deposit</strong> required for order confirmation.<br><br>
+      Do follow our page on Instagram:<br>
+      <a href="https://www.instagram.com/goozdelish?igsh=cDJncnc3cDY1NXls&utm_source=qr" target="_blank" rel="noopener" style="color:#c96682;font-weight:800">@goozdelish</a>
+    `;
+    form.reset();
+    statusBox.scrollIntoView({behavior:"smooth",block:"center"});
+  }catch(err){
+    statusBox.className="status error";
+    statusBox.textContent="We couldn't submit your order right now. Please message GoozDelish on Instagram and try again later.";
+  }finally{
+    submitBtn.disabled=false;
+    submitBtn.textContent="Submit Order";
+  }
+});
+</script>
+</body>
+</html>
