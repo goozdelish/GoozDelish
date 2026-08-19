@@ -1,0 +1,20 @@
+GOOZDELISH GOOGLE SHEETS + PHOTO UPLOAD CONNECTION
+
+1. Sign in to Google using Goozdelish@gmail.com.
+2. Create a new Google Sheet named: GoozDelish Customer Orders.
+3. Open Extensions > Apps Script.
+4. Delete any sample code and paste everything from GoogleAppsScript_Code.gs.
+5. Click Deploy > New deployment.
+6. Choose type: Web app.
+7. Execute as: Me.
+8. Who has access: Anyone.
+9. Click Deploy and authorize both Google Sheets and Google Drive permissions.
+10. Copy the Web App URL ending in /exec.
+11. Open order.html and replace PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE with that URL.
+12. Save order.html and publish the website.
+
+WHAT HAPPENS
+Customer submits order -> text details are stored in the Orders tab -> uploaded reference photo is saved in a Google Drive folder called GoozDelish Order Reference Photos -> the Sheet stores the clickable Drive link in the Photo Reference column -> customer sees the thank-you/deposit message.
+
+PHOTO LIMIT
+The website allows JPEG, PNG or WEBP images up to 8 MB.
