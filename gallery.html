@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery | GoozDelish</title><style>
+:root{--pink:#c96682;--rose:#a74d67;--dark:#563b35;--cream:#fffaf6;--soft:#f8e7ec;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--dark);line-height:1.55}
+img{width:100%;display:block}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,250,246,.96);border-bottom:1px solid #ead9d3;backdrop-filter:blur(10px)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:1.8rem;color:var(--pink)}
+.links{display:flex;gap:18px;align-items:center;font-weight:700;font-size:.93rem}
+.btn{display:inline-block;background:var(--pink);color:#fff;padding:12px 18px;border-radius:999px;font-weight:700}
+.btn:hover{background:var(--rose)}
+.hero{padding:70px 0;background:radial-gradient(circle at 12% 10%,#f7dce4,transparent 30%),var(--cream)}
+.hero-grid{display:grid;grid-template-columns:1fr .92fr;gap:44px;align-items:center}
+.tag{display:inline-block;background:var(--soft);padding:7px 12px;border-radius:99px;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+h1{font-family:Georgia,serif;font-size:clamp(2.7rem,6vw,5.2rem);line-height:1;margin:16px 0;color:#49322d}
+h1 span{color:var(--pink)}.hero p{font-size:1.08rem;color:#755d56;max-width:610px}
+.hero-photo{border-radius:28px;overflow:hidden;box-shadow:0 18px 45px rgba(86,59,53,.16)}
+.hero-photo img{aspect-ratio:4/5;object-fit:cover}
+section{padding:72px 0}.head{text-align:center;max-width:720px;margin:0 auto 34px}
+h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem);margin:0 0 10px}.head p{margin:0;color:#765d55}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;border-radius:22px;padding:24px;box-shadow:0 10px 28px rgba(86,59,53,.08)}
+.card b{display:block;font-size:1.1rem;margin:8px 0}.card span{font-size:2rem}.card p{font-size:.94rem;color:#775e57;margin:0}
+.preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.preview-grid a{border-radius:20px;overflow:hidden;box-shadow:0 8px 24px rgba(86,59,53,.09)}
+.preview-grid img{aspect-ratio:1/1;object-fit:cover;transition:.25s transform}
+.preview-grid a:hover img{transform:scale(1.025)}
+.banner{background:#573c36;color:#fff;border-radius:30px;padding:42px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+.banner p{color:#eee2dc}.banner .btn{background:#fff;color:var(--pink)}
+footer{text-align:center;padding:34px 0;color:#866a61;border-top:1px solid #ead9d3}
+@media(max-width:850px){.hero-grid,.banner{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.links a:not(.btn){display:none}.services,.preview-grid{grid-template-columns:1fr 1fr}.hero{padding:48px 0}.banner{padding:28px 22px}}
+
+.gallery-wrap{padding:54px 0 80px}
+.gallery-grid{columns:4 240px;column-gap:14px}
+.gallery-item{break-inside:avoid;margin:0 0 14px;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 7px 20px rgba(86,59,53,.08)}
+.gallery-item img{height:auto}
+.gallery-top{text-align:center;max-width:740px;margin:0 auto 34px}
+.gallery-top h1{font-size:clamp(2.5rem,5vw,4.5rem);margin-bottom:12px}
+.gallery-top p{color:#765d55}
+@media(max-width:650px){.gallery-grid{columns:2 150px;column-gap:10px}.gallery-item{margin-bottom:10px}}
+</style>
+</head><body>
+<nav><div class="wrap nav">
+<a class="logo" href="index.html">GoozDelish</a>
+<div class="links"><a href="index.html">Home</a><a href="gallery.html">Gallery</a><a class="btn" href="order.html">Order Now</a></div>
+</div></nav>
+<main class="gallery-wrap"><div class="wrap">
+<div class="gallery-top"><span class="tag">Our Creations</span><h1>GoozDelish Gallery</h1>
+<p>Browse our custom celebration cakes and sweet creations. All gallery photos carry a GoozDelish watermark.</p></div>
+<div class="gallery-grid"><figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-01.jpg" alt="GoozDelish custom cake 1"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-02.jpg" alt="GoozDelish custom cake 2"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-03.jpg" alt="GoozDelish custom cake 3"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-04.jpg" alt="GoozDelish custom cake 4"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-05.jpg" alt="GoozDelish custom cake 5"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-06.jpg" alt="GoozDelish custom cake 6"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-07.jpg" alt="GoozDelish custom cake 7"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-08.jpg" alt="GoozDelish custom cake 8"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-09.jpg" alt="GoozDelish custom cake 9"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-10.jpg" alt="GoozDelish custom cake 10"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-11.jpg" alt="GoozDelish custom cake 11"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-12.jpg" alt="GoozDelish custom cake 12"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-13.jpg" alt="GoozDelish custom cake 13"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-14.jpg" alt="GoozDelish custom cake 14"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-15.jpg" alt="GoozDelish custom cake 15"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-16.jpg" alt="GoozDelish custom cake 16"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-17.jpg" alt="GoozDelish custom cake 17"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-18.jpg" alt="GoozDelish custom cake 18"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-19.jpg" alt="GoozDelish custom cake 19"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-20.jpg" alt="GoozDelish custom cake 20"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-21.jpg" alt="GoozDelish custom cake 21"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-22.jpg" alt="GoozDelish custom cake 22"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-23.jpg" alt="GoozDelish custom cake 23"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-24.jpg" alt="GoozDelish custom cake 24"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-25.jpg" alt="GoozDelish custom cake 25"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-26.jpg" alt="GoozDelish custom cake 26"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-27.jpg" alt="GoozDelish custom cake 27"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-28.jpg" alt="GoozDelish custom cake 28"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-29.jpg" alt="GoozDelish custom cake 29"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-30.jpg" alt="GoozDelish custom cake 30"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-31.jpg" alt="GoozDelish custom cake 31"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-32.jpg" alt="GoozDelish custom cake 32"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-33.jpg" alt="GoozDelish custom cake 33"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-34.jpg" alt="GoozDelish custom cake 34"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-35.jpg" alt="GoozDelish custom cake 35"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-36.jpg" alt="GoozDelish custom cake 36"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-37.jpg" alt="GoozDelish custom cake 37"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-38.jpg" alt="GoozDelish custom cake 38"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-39.jpg" alt="GoozDelish custom cake 39"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-40.jpg" alt="GoozDelish custom cake 40"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-41.jpg" alt="GoozDelish custom cake 41"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-42.jpg" alt="GoozDelish custom cake 42"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-43.jpg" alt="GoozDelish custom cake 43"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-44.jpg" alt="GoozDelish custom cake 44"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-45.jpg" alt="GoozDelish custom cake 45"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-46.jpg" alt="GoozDelish custom cake 46"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-47.jpg" alt="GoozDelish custom cake 47"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-48.jpg" alt="GoozDelish custom cake 48"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-49.jpg" alt="GoozDelish custom cake 49"></figure>
+<figure class="gallery-item"><img loading="lazy" src="assets/gallery/gallery-50.jpg" alt="GoozDelish custom cake 50"></figure></div>
+</div></main>
+<footer><strong>GoozDelish</strong><br>Home Bakery • Whitby, Ontario • Instagram @goozdelish</footer>
+</body></html>

@@ -1,12 +1,13 @@
-GoozDelish updated website
+GOOZDELISH WEBSITE UPDATE
 
-Open index.html to preview.
+Upload/replace these in the ROOT of your GitHub repository:
+- index.html
+- gallery.html
+- order.html
+- assets/  (upload the whole folder, including assets/gallery)
 
-FREE HOSTING:
-- GitHub Pages
-- Cloudflare Pages
+Important:
+Do not rename gallery.html or order.html.
+GitHub Pages may take 1-3 minutes to redeploy after upload.
 
-Upload the entire folder contents, including the assets folder.
-
-Instagram order button:
-https://www.instagram.com/goozdelish/
+The Gallery contains all 50 photos uploaded in this chat, optimized for web and watermarked "GoozDelish".
