@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | GoozDelish</title>
+<style>
+:root{--pink:#cf6686;--rose:#a74d67;--cream:#fff9f5;--ink:#563b35;--muted:#846861;--line:#eadbd4;--soft:#fff1f5}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+a{text-decoration:none;color:inherit}.wrap{width:min(1050px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,249,245,.96);border-bottom:1px solid var(--line)}
+.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px}.brand img{width:54px;height:54px;object-fit:contain}
+.brand-name{font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:2rem;color:var(--pink)}
+.links{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-weight:700}
+.btn{display:inline-block;background:var(--pink);color:#fff;padding:13px 20px;border-radius:999px;font-weight:700}
+.hero{text-align:center;padding:60px 0 42px;background:radial-gradient(circle at 20% 20%,#f8e5eb,transparent 28%),radial-gradient(circle at 82% 16%,#fdebdc,transparent 24%),var(--cream)}
+.tag{display:inline-block;background:#f7e6ec;color:var(--rose);padding:8px 14px;border-radius:999px;font-weight:700;margin-bottom:14px}
+h1,h2{font-family:Georgia,serif}h1{font-size:clamp(2.8rem,6vw,4.8rem);margin:0 0 14px}
+.hero p{max-width:700px;margin:auto;color:var(--muted);font-size:1.08rem;line-height:1.7}
+.content{padding:42px 0 70px}.intro{max-width:780px;margin:0 auto 30px;text-align:center;line-height:1.75;color:#6f5851}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid #f1e5df;border-radius:22px;padding:24px;box-shadow:0 10px 30px rgba(86,59,53,.06)}
+.icon{font-size:2rem}.card h2{font-size:1.3rem;margin:12px 0 8px}.card p{margin:0;color:var(--muted);line-height:1.6}
+.promise{margin:32px auto 0;max-width:900px;background:var(--soft);border:1px solid #f0ccd6;border-radius:24px;padding:28px;text-align:center}
+.promise h2{margin:0 0 10px;color:var(--rose)}.promise p{margin:0;color:#6f5851;line-height:1.7}
+.cta{text-align:center;padding:5px 0 75px}.cta h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:10px}.cta p{color:var(--muted);margin-bottom:20px}
+footer{text-align:center;padding:32px 0 40px;color:#866a61;border-top:1px solid var(--line)}
+@media(max-width:800px){.cards{grid-template-columns:1fr 1fr}.nav{align-items:flex-start;flex-direction:column;padding:14px 0}.links{gap:11px;font-size:.92rem}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav">
+<a class="brand" href="index.html"><img src="goozdelish-cat.png" alt="GoozDelish logo" onerror="this.style.display='none'"><span class="brand-name">GoozDelish</span></a>
+<div class="links"><a href="index.html">Home</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a class="btn" href="order.html">Order Now</a></div>
+</div></nav>
+
+<section class="hero"><div class="wrap">
+<span class="tag">Our Story</span>
+<h1>About GoozDelish</h1>
+<p>A women-owned home bakery in Whitby, Ontario, creating fresh custom cakes with care and attention for life's special moments.</p>
+</div></section>
+
+<section class="content"><div class="wrap">
+<p class="intro">At GoozDelish, every cake is made specifically for your order. We focus on quality ingredients, freshness and thoughtful details so each celebration receives the attention it deserves.</p>
+
+<div class="cards">
+<div class="card"><div class="icon">👩‍🍳</div><h2>Women-Owned</h2><p>Proudly women-owned and operated with passion for creating memorable celebration cakes.</p></div>
+<div class="card"><div class="icon">✓</div><h2>Food Safety Certified</h2><p>Ontario food-handler safety certified, with care given to safe preparation and handling.</p></div>
+<div class="card"><div class="icon">📍</div><h2>Whitby Home Bakery</h2><p>A home-based bakery located in Whitby, Ontario, offering custom-made cakes by pre-order.</p></div>
+<div class="card"><div class="icon">🗓️</div><h2>Pre-Order Ahead</h2><p>Please place orders at least 10 days in advance whenever possible to allow enough time for planning and preparation.</p></div>
+<div class="card"><div class="icon">🎂</div><h2>Limited Orders</h2><p>We accept a limited number of orders so each cake can receive better individual attention and care.</p></div>
+<div class="card"><div class="icon">✨</div><h2>Freshly Made</h2><p>No pre-made frozen cakes. Cakes are freshly prepared for each confirmed order.</p></div>
+</div>
+
+<div class="promise">
+<h2>Quality Ingredients, Made with Care</h2>
+<p>We believe good cakes begin with good ingredients. GoozDelish uses real cream, real butter and real chocolate in our creations, with each order freshly prepared for your celebration.</p>
+</div>
+</div></section>
+
+<section class="cta"><div class="wrap">
+<h2>Made especially for your celebration</h2>
+<p>Plan ahead and let us create something sweet for your special day.</p>
+<a class="btn" href="order.html">Start Your Order</a>
+</div></section>
+
+<footer><strong>GoozDelish</strong><br>Home Bakery • Whitby, Ontario</footer>
+</body>
+</html>
