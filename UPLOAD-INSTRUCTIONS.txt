@@ -1,0 +1,22 @@
+KEEP all existing JPG/PNG image files in the ROOT of your GitHub repository.
+
+Replace only these HTML files:
+- index.html
+- gallery.html
+- reviews.html
+- client-share.html
+- order.html
+
+This version expects:
+gallery-01.jpg, gallery-02.jpg, ...
+review-01.jpg, review-02.jpg, ...
+goozdelish-cat.png
+goozdelish-wordmark.png
+
+For future Client Share photos, upload:
+client-01.jpg
+client-02.jpg
+client-03.jpg
+...
+
+Do NOT put images inside assets/ folders for this version.

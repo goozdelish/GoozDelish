@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gallery | GoozDelish</title><style>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GoozDelish | Home Bakery in Whitby</title><style>
 :root{--pink:#cf6686;--rose:#a74d67;--cream:#fff9f5;--ink:#563b35;--muted:#846861;--line:#eadbd4}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
 img{max-width:100%;display:block}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
@@ -27,4 +27,12 @@ input,select,textarea{width:100%;padding:13px 14px;border:1px solid #dbcac2;bord
 <a class="brand" href="index.html"><img src="goozdelish-cat.png" alt="GoozDelish logo" onerror="this.style.display='none'"><span class="brand-name">GoozDelish</span></a>
 <div class="links"><a href="index.html">Home</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="client-share.html">Client Share</a><a class="btn" href="order.html">Order Now</a></div>
 </div></nav>
-<section class="page-hero"><div class="wrap"><h1>Gallery</h1><p>Browse our custom celebration cakes and sweet creations.</p></div></section><section><div class="wrap"><div class="gallery-grid" id="gallery"></div></div></section><footer><strong>GoozDelish</strong><br>Home Bakery • Whitby, Ontario</footer><script>const g=document.getElementById('gallery');for(let n=1;n<=80;n++){const d=document.createElement('div');d.className='tile';const i=document.createElement('img');i.src='gallery-'+String(n).padStart(2,'0')+'.jpg';i.loading='lazy';i.onerror=function(){this.closest('.tile').remove()};d.appendChild(i);g.appendChild(d)};</script></body></html>
+
+<header class="hero"><div class="wrap hero-grid"><div><span class="tag">Home Bakery • Whitby, Ontario</span><h1>Made with love for your <span>special moments.</span></h1><p>Custom cakes for birthdays, anniversaries and special celebrations, plus brownies, dessert cups and beautifully presented cake hampers.</p><p><a class="btn" href="order.html">Start Your Order</a></p></div>
+<div class="hero-photo"><img src="gallery-01.jpg" alt="GoozDelish custom cake" onerror="this.onerror=null;this.src='gallery-41.jpg'"></div></div></header>
+<section><div class="wrap"><div class="head"><h2>Our Sweet Creations</h2><p>Freshly made for your celebrations.</p></div><div class="services">
+<div class="card">🎂<b> Custom Cakes</b><p>Made to match your theme and celebration.</p></div><div class="card">🍫<b> Brownies</b><p>Rich, fudgy and perfect for sharing.</p></div><div class="card">🍨<b> Dessert Cups</b><p>Beautiful individual desserts for events.</p></div><div class="card">🎁<b> Hamper Cake Boxes</b><p>A sweet gift, beautifully presented.</p></div>
+</div></div></section>
+<section style="background:#fff5f1"><div class="wrap"><div class="head"><h2>Gallery</h2><p>A glimpse of GoozDelish creations.</p></div><div class="gallery-grid" id="homeGallery"></div><p style="text-align:center;margin-top:28px"><a class="btn" href="gallery.html">View Full Gallery</a></p></div></section>
+<section><div class="wrap"><div class="banner"><div><h2>Planning a celebration?</h2><p>Send your date, serving count, flavour and design details.</p></div><div><a class="btn" href="order.html">Order Now</a></div></div></div></section>
+<footer><strong>GoozDelish</strong><br>Home Bakery • Whitby, Ontario</footer><script>const box=document.getElementById('homeGallery');[1,2,3,4,5,6].forEach(n=>{const d=document.createElement('div');d.className='tile';const i=document.createElement('img');i.src='gallery-'+String(n).padStart(2,'0')+'.jpg';i.onerror=function(){this.closest('.tile').remove()};d.appendChild(i);box.appendChild(d)});</script></body></html>

@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gallery | GoozDelish</title><style>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Order | GoozDelish</title><style>
 :root{--pink:#cf6686;--rose:#a74d67;--cream:#fff9f5;--ink:#563b35;--muted:#846861;--line:#eadbd4}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
 img{max-width:100%;display:block}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
@@ -27,4 +27,15 @@ input,select,textarea{width:100%;padding:13px 14px;border:1px solid #dbcac2;bord
 <a class="brand" href="index.html"><img src="goozdelish-cat.png" alt="GoozDelish logo" onerror="this.style.display='none'"><span class="brand-name">GoozDelish</span></a>
 <div class="links"><a href="index.html">Home</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="client-share.html">Client Share</a><a class="btn" href="order.html">Order Now</a></div>
 </div></nav>
-<section class="page-hero"><div class="wrap"><h1>Gallery</h1><p>Browse our custom celebration cakes and sweet creations.</p></div></section><section><div class="wrap"><div class="gallery-grid" id="gallery"></div></div></section><footer><strong>GoozDelish</strong><br>Home Bakery • Whitby, Ontario</footer><script>const g=document.getElementById('gallery');for(let n=1;n<=80;n++){const d=document.createElement('div');d.className='tile';const i=document.createElement('img');i.src='gallery-'+String(n).padStart(2,'0')+'.jpg';i.loading='lazy';i.onerror=function(){this.closest('.tile').remove()};d.appendChild(i);g.appendChild(d)};</script></body></html>
+<section class="page-hero"><div class="wrap"><h1>Start Your Order</h1><p>Send us the details for your celebration.</p></div></section><div class="wrap"><form class="form-card" id="orderForm"><div class="form-grid">
+<div class="field"><label>Your name *</label><input required></div><div class="field"><label>Instagram / Email *</label><input required></div>
+<div class="field"><label>Occasion</label><select><option>Birthday</option><option>Anniversary</option><option>Baby Shower</option><option>Wedding</option><option>Graduation</option><option>Other</option></select></div>
+<div class="field"><label>Serving count *</label><input type="number" min="1" required placeholder="Example: 20"></div>
+<div class="field"><label>Flavour *</label><select required><option value="">Select flavour</option><option>Vanilla</option><option>Chocolate</option><option>Red Velvet</option><option>Cookies & Cream</option><option>Biscoff</option><option>Strawberry</option><option>Butterscotch</option><option>Black Forest</option><option>Other / Custom</option></select></div>
+<div class="field"><label>Cake option</label><select><option>Regular</option><option>Eggless</option></select></div>
+<div class="field"><label>Pickup date *</label><input type="date" required></div><div class="field"><label>Pickup time *</label><input type="time" required></div>
+<div class="field full"><label>What would you like written on the cake?</label><input placeholder="Example: Happy Birthday Sophia"></div>
+<div class="field full"><label>Theme / colours / design details *</label><textarea required></textarea></div><div class="field full"><label>Other notes</label><textarea></textarea></div></div>
+<p class="note">Please message GoozDelish on Instagram after submitting so we can confirm the quote and availability.</p><button class="btn" type="submit">Submit Order Request</button>
+<div class="success" id="success"><strong>Thank you for placing your order with us! 💕</strong><br><br>Kindly message us back for your quote. A <strong>50% deposit</strong> is required for order confirmation.<br>Please follow our Instagram page for updates and new creations.<br><a class="ig-btn" target="_blank" href="https://www.instagram.com/goozdelish?igsh=cDJncnc3cDY1NXls&utm_source=qr">Follow / Message @goozdelish</a></div></form></div><footer><strong>GoozDelish</strong><br>Home Bakery • Whitby, Ontario</footer>
+<script>document.getElementById('orderForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('success').classList.add('show');document.getElementById('success').scrollIntoView({behavior:'smooth'})});</script></body></html>
