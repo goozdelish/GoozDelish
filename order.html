@@ -26,6 +26,9 @@
     input,select,textarea{width:100%;padding:14px;border:1px solid #d9cbc5;border-radius:12px;font-size:16px;background:#fff}
     textarea{min-height:110px;resize:vertical}
     .checkbox-group{background:#fff7f4;padding:14px 16px;border-radius:12px}
+    .flavour-note{font-size:14px;color:#816a63;line-height:1.5;margin:0 0 10px}
+    .flavour-group-title{font-weight:700;color:#a74d67;margin:16px 0 2px}
+    .flavour-group-title:first-child{margin-top:0}
     .checkbox-row{display:flex;align-items:flex-start;gap:10px;margin:10px 0}
     .checkbox-row input{width:auto;margin-top:3px;transform:scale(1.15)}
     .checkbox-row label{margin:0;font-weight:400}
@@ -83,20 +86,37 @@
           <div class="checkbox-row"><input type="checkbox" id="halal" name="preference" value="Halal"><label for="halal">Halal</label></div>
         </div>
 
-        <label for="classicFlavour">Classic Flavour</label>
-        <select id="classicFlavour">
-          <option value="">Select Classic Flavour</option>
-          <option>Vanilla</option><option>Red Velvet</option><option>Chocolate</option>
-          <option>Lemon Poppy</option><option>Biscoff</option><option>Cookies and Cream</option><option>Butterscotch</option>
-        </select>
-
-        <label for="premiumFlavour">Premium Flavour($extra)</label>
-        <select id="premiumFlavour">
-          <option value="">Select Premium Flavour</option>
-          <option>Choco Fudge</option><option>Mango</option><option>Rasmalai</option><option>Gulab Jamun</option><option>Rose</option>
-          <option>Vanilla Blueberry Compote</option><option>Vanilla Strawberry Compote</option>
-          <option>Vanilla Raspberry Compote</option><option>Vanilla Banana Cream</option><option>Pistachio</option>
-        </select>
+        <label>Cake Flavour(s) *</label>
+        <p class="flavour-note">Select at least one flavour. You can select more than one — for example, a different flavour for each tier. Premium flavours cost extra, and the extra will be confirmed in your quote.</p>
+        <div class="checkbox-group" id="flavourGroup">
+          <div class="flavour-group-title">Classic — Included</div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-vanilla" name="flavourStandard" value="Vanilla"><label for="flavour-vanilla">Vanilla</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-chocolate" name="flavourStandard" value="Chocolate"><label for="flavour-chocolate">Chocolate</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-red-velvet" name="flavourStandard" value="Red Velvet"><label for="flavour-red-velvet">Red Velvet</label></div>
+          <div class="flavour-group-title">Kids Favourites — Included</div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-funfetti" name="flavourStandard" value="Funfetti"><label for="flavour-funfetti">Funfetti</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-cookies-and-cream" name="flavourStandard" value="Cookies and Cream"><label for="flavour-cookies-and-cream">Cookies and Cream</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-biscoff" name="flavourStandard" value="Biscoff"><label for="flavour-biscoff">Biscoff</label></div>
+          <div class="flavour-group-title">Premium — Fruity &amp; Fresh (+ Extra)</div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-lemon-poppy" name="flavourPremium" value="Lemon Poppy"><label for="flavour-lemon-poppy">Lemon Poppy</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-vanilla-strawberry" name="flavourPremium" value="Vanilla Strawberry"><label for="flavour-vanilla-strawberry">Vanilla Strawberry</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-vanilla-raspberry" name="flavourPremium" value="Vanilla Raspberry"><label for="flavour-vanilla-raspberry">Vanilla Raspberry</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-vanilla-blueberry" name="flavourPremium" value="Vanilla Blueberry"><label for="flavour-vanilla-blueberry">Vanilla Blueberry</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-mango" name="flavourPremium" value="Mango"><label for="flavour-mango">Mango</label></div>
+          <div class="flavour-group-title">Premium — Chocolate Lovers (+ Extra)</div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-chocolate-fudge" name="flavourPremium" value="Chocolate Fudge"><label for="flavour-chocolate-fudge">Chocolate Fudge</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-chocolate-caramel" name="flavourPremium" value="Chocolate Caramel"><label for="flavour-chocolate-caramel">Chocolate Caramel</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-mocha" name="flavourPremium" value="Mocha"><label for="flavour-mocha">Mocha</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-black-forest" name="flavourPremium" value="Black Forest"><label for="flavour-black-forest">Black Forest</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-choco-nila" name="flavourPremium" value="Choco-Nila"><label for="flavour-choco-nila">Choco-Nila (Chocolate + Vanilla)</label></div>
+          <div class="flavour-group-title">Premium — Special &amp; Fusion (+ Extra)</div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-tres-leches" name="flavourPremium" value="Tres Leches"><label for="flavour-tres-leches">Tres Leches</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-vanilla-pistachio" name="flavourPremium" value="Vanilla Pistachio"><label for="flavour-vanilla-pistachio">Vanilla Pistachio</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-vanilla-banana-cream" name="flavourPremium" value="Vanilla Banana Cream"><label for="flavour-vanilla-banana-cream">Vanilla Banana Cream</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-rose" name="flavourPremium" value="Rose"><label for="flavour-rose">Rose</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-rasmalai" name="flavourPremium" value="Rasmalai"><label for="flavour-rasmalai">Rasmalai</label></div>
+          <div class="checkbox-row"><input type="checkbox" id="flavour-gulab-jamun" name="flavourPremium" value="Gulab Jamun"><label for="flavour-gulab-jamun">Gulab Jamun</label></div>
+        </div>
 
         <label for="referencePhoto">Upload Photo for Reference</label>
         <input type="file" id="referencePhoto" accept="image/*">
@@ -163,11 +183,13 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
   const preferences = Array.from(document.querySelectorAll('input[name="preference"]:checked')).map(x => x.value);
   if (!preferences.length) { alert("Please choose at least one preference."); return; }
 
-  const classicFlavour = document.getElementById("classicFlavour").value;
-  const premiumFlavour = document.getElementById("premiumFlavour").value;
+  const standardFlavours = Array.from(document.querySelectorAll('input[name="flavourStandard"]:checked')).map(x => x.value);
+  const premiumFlavours = Array.from(document.querySelectorAll('input[name="flavourPremium"]:checked')).map(x => x.value);
 
-  if (!classicFlavour && !premiumFlavour) { alert("Please select a Classic or Premium flavour."); return; }
-  if (classicFlavour && premiumFlavour) { alert("Please choose only one flavour — either Classic or Premium."); return; }
+  if (!standardFlavours.length && !premiumFlavours.length) { alert("Please select at least one cake flavour."); return; }
+
+  const classicFlavour = standardFlavours.join(", ");
+  const premiumFlavour = premiumFlavours.join(", ");
 
   submitButton.disabled = true;
   submitButton.textContent = "Submitting...";
