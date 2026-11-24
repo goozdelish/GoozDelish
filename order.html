@@ -5,13 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order | GoozDelish</title>
   <style>
+    :root{--pink:#cf6686;--rose:#a74d67;--cream:#fff9f5;--ink:#563b35;--muted:#846861;--line:#eadbd4}
     *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff9f6;color:#573c36}
-    .header{background:#fffaf7;padding:22px 18px;text-align:center;border-bottom:1px solid #eadbd5}
-    .header h1{margin:0;font-family:Georgia,serif;font-style:italic;color:#cf6482;font-size:40px}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+    a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+    nav{position:sticky;top:0;z-index:50;background:rgba(255,249,245,.96);border-bottom:1px solid var(--line)}
+    .nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:58px;height:58px;object-fit:contain}.brand-name{font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:clamp(1.9rem,4vw,3rem);color:var(--pink)}
+    .links{display:flex;gap:18px;align-items:center;font-weight:700;flex-wrap:wrap}.btn{display:inline-block;background:var(--pink);color:#fff;padding:14px 22px;border-radius:999px;font-weight:700;border:0;cursor:pointer}
+    footer{text-align:center;padding:34px 0;color:#866a61;border-top:1px solid var(--line);line-height:1.8}
+    footer .social a{color:var(--rose);font-weight:700;text-decoration:underline;margin:0 6px}
     .container{max-width:760px;margin:auto;padding:28px 18px 55px}
     h2{text-align:center;font-family:Georgia,serif;font-size:30px;margin-bottom:10px}
     .intro{text-align:center;color:#816a63;line-height:1.6;margin-bottom:28px}
+    .alert{margin:0 auto 24px;max-width:760px;background:#fff1f5;border:1px solid #f0ccd6;border-radius:14px;padding:16px 18px;line-height:1.6;text-align:center}
+    .alert strong{color:var(--rose)}
+    .date-warning{display:none;margin-top:10px;padding:12px 14px;border-radius:12px;background:#fff8e6;border:1px solid #ecd9a0;color:#6b5510;line-height:1.5;font-size:14px}
     .form-card{background:#fff;padding:24px;border-radius:22px;box-shadow:0 5px 20px rgba(0,0,0,.08)}
     label{display:block;font-weight:700;margin-top:20px;margin-bottom:8px}
     input,select,textarea{width:100%;padding:14px;border:1px solid #d9cbc5;border-radius:12px;font-size:16px;background:#fff}
@@ -27,13 +36,21 @@
     #successMessage{background:#eef9ef;color:#315f37}
     #errorMessage{background:#fff0f0;color:#a33}
     .instagram{color:#cf6482;font-weight:700}
+    @media(max-width:850px){.nav{align-items:flex-start;padding:14px 0;flex-direction:column}}
   </style>
 </head>
 <body>
-  <div class="header"><h1>GoozDelish</h1></div>
+<nav><div class="wrap nav">
+<a class="brand" href="index.html"><img src="goozdelish-cat.png" alt="GoozDelish logo" onerror="this.style.display='none'"><span class="brand-name">GoozDelish</span></a>
+<div class="links"><a href="index.html">Home</a><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="pricing.html">Pricing</a><a href="client-share.html">Client Share</a><a class="btn" href="order.html">Order Now</a></div>
+</div></nav>
+
   <main class="container">
     <h2>Place Your Order 🎂</h2>
     <p class="intro">Please complete the form below. Your order is confirmed only after receiving your quote and 50% deposit.</p>
+
+    <div class="alert" role="note"><strong>Please book ahead:</strong> Orders should be booked at least 10 days in advance whenever possible, so there is enough time to plan and prepare your cake. You can still complete and submit this form for any date — this is just a friendly notice, and we will confirm availability with your quote.</div>
+
     <div class="form-card">
       <form id="orderForm">
         <label for="name">Name *</label>
@@ -51,6 +68,7 @@
 
         <label for="pickupDate">Date of Pickup *</label>
         <input type="date" id="pickupDate" required>
+        <div class="date-warning" id="dateWarning" role="note"></div>
 
         <label for="pickupTime">Time of Pickup *</label>
         <input type="time" id="pickupTime" required>
@@ -110,8 +128,28 @@
     </div>
   </main>
 
+<footer><strong>GoozDelish</strong><br>Home Bakery • Whitby, Ontario<br><span class="social">Follow us: <a href="https://www.instagram.com/goozdelish" target="_blank" rel="noopener">@GoozDelish on Instagram</a> • <a href="https://www.instagram.com/hamprify" target="_blank" rel="noopener">@hamprify on Instagram</a></span></footer>
+
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwCdyDXYw89EgICvkLcdUKxuaP9TJOiFJ-qkGkspkY3UbhbEmNeib9GOykqPKApBVoXww/exec";
+
+/* Non-blocking 10-day notice only: this only shows or hides a warning message.
+   It never prevents entering a date, and it is not part of the submit handler,
+   so it can never block the form from being submitted. */
+document.getElementById("pickupDate").addEventListener("change", function(){
+  const warning = document.getElementById("dateWarning");
+  if (!this.value) { warning.style.display = "none"; warning.textContent = ""; return; }
+  const picked = new Date(this.value + "T00:00:00");
+  const today = new Date(); today.setHours(0,0,0,0);
+  const daysAway = Math.round((picked - today) / 86400000);
+  if (daysAway < 10) {
+    warning.textContent = "Friendly notice: this pickup date is less than 10 days away. We usually ask for at least 10 days so your cake can be planned and prepared properly. You can still submit this form — we will confirm with your quote whether this date is possible.";
+    warning.style.display = "block";
+  } else {
+    warning.style.display = "none";
+    warning.textContent = "";
+  }
+});
 
 document.getElementById("orderForm").addEventListener("submit", async function(event){
   event.preventDefault();
