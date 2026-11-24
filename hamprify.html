@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order | hamprify — Party Favours & Gifts, Whitby</title>
+<style>
+  :root{
+    --coral:#ef6351; --purple:#6c4ab0; --mint:#2fa37c; --yellow:#ffb703;
+    --cream:#fffaf5; --ink:#3d2c35; --muted:#7d6a72; --line:#efddd6; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+  a{color:var(--purple);font-weight:700}
+  .preview-banner{background:var(--purple);color:#fff;text-align:center;padding:10px 14px;font-size:14px;line-height:1.5}
+  .preview-banner strong{letter-spacing:.06em}
+  header{text-align:center;padding:30px 18px 6px}
+  header img{width:150px;height:150px;object-fit:contain}
+  .brand{font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:clamp(2.2rem,6vw,3.2rem);color:var(--coral);margin:4px 0 2px}
+  .headline{font-size:clamp(1.15rem,3.5vw,1.5rem);font-weight:700;color:var(--purple);margin:6px 0}
+  .tagline{color:var(--muted);line-height:1.6;margin:4px auto 10px;max-width:620px}
+  .container{max-width:760px;margin:auto;padding:14px 18px 55px}
+  .alert{background:#fff3e8;border:1px solid #f3d3ae;border-radius:14px;padding:15px 18px;line-height:1.6;text-align:center;margin-bottom:22px}
+  .alert strong{color:#9a5b00}
+  .date-warning{display:none;margin-top:10px;padding:12px 14px;border-radius:12px;background:#fff8e6;border:1px solid #ecd9a0;color:#6b5510;line-height:1.5;font-size:14px;text-align:left}
+  .form-card{background:var(--card);padding:26px 24px;border-radius:22px;box-shadow:0 5px 20px rgba(61,44,53,.09)}
+  h2.section{font-size:19px;margin:30px 0 4px;color:var(--purple);border-top:1px solid var(--line);padding-top:22px}
+  h2.section:first-of-type{border-top:0;padding-top:0;margin-top:4px}
+  .section-note{color:var(--muted);font-size:14px;line-height:1.55;margin:2px 0 6px}
+  label{display:block;font-weight:700;margin-top:18px;margin-bottom:8px}
+  input,select,textarea{width:100%;padding:14px;border:1px solid #d9cbc5;border-radius:12px;font-size:16px;background:#fff;color:var(--ink)}
+  textarea{min-height:100px;resize:vertical}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:560px){.row2{grid-template-columns:1fr}}
+  /* Item picker: tick + quantity */
+  .item-list{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:10px}
+  .item-row{display:flex;align-items:center;gap:12px;padding:13px 14px;border-bottom:1px solid var(--line);background:#fff}
+  .item-row:last-child{border-bottom:0}
+  .item-row.checked{background:#fdf3ff}
+  .item-row input[type=checkbox]{width:22px;height:22px;flex:0 0 auto;accent-color:var(--purple)}
+  .item-name{flex:1 1 auto;font-weight:600;line-height:1.4}
+  .item-name small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+  .qty{width:92px;flex:0 0 auto}
+  .qty input{padding:10px;text-align:center}
+  .qty input:disabled{background:#f3eeec;color:#b7a6a0}
+  .radio-group,.check-group{background:#fff7f4;padding:12px 16px;border-radius:12px;margin-top:8px}
+  .radio-row,.check-row{display:flex;align-items:flex-start;gap:10px;margin:10px 0}
+  .radio-row input,.check-row input{width:auto;margin-top:3px;transform:scale(1.2);accent-color:var(--purple)}
+  .radio-row label,.check-row label{margin:0;font-weight:400}
+  .spell-warning{background:#fff8e6;border:1px solid #ecd9a0;border-radius:12px;padding:13px 16px;line-height:1.55;font-size:14.5px;margin-top:16px}
+  .spell-warning strong{color:#6b5510}
+  #deliveryAddressWrap{display:none}
+  .notice{margin-top:22px;padding:16px;border-radius:12px;background:#fdf3ff;font-size:14px;line-height:1.55}
+  button.submit{width:100%;margin-top:25px;padding:16px;border:0;border-radius:999px;background:var(--coral);color:#fff;font-size:18px;font-weight:700;cursor:pointer}
+  button.submit:disabled{opacity:.6}
+  #successMessage{display:none;margin-top:6px;padding:24px 20px;border-radius:14px;background:#eef9ef;color:#315f37;text-align:center;line-height:1.65}
+  #successMessage .summary{text-align:left;background:#fff;border:1px solid #d8ecd9;border-radius:12px;padding:14px 16px;margin:16px 0;color:var(--ink);font-size:14.5px;white-space:pre-line}
+  footer{text-align:center;padding:30px 16px 38px;color:var(--muted);border-top:1px solid var(--line);line-height:1.8;font-size:14.5px}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="hamprify-logo.png" alt="hamprify logo">
+  <div class="brand">hamprify</div>
+  <p class="headline">It's not a party until it's hamprified! 🎉</p>
+  <p class="tagline"><strong>Your party, hamprified!</strong><br>
+  You choose the theme, we turn it into favours your guests will love taking home ✨<br>
+  Personalized with names, photos &amp; event details — all matching, all made for your party.<br>
+  Pickup in Whitby | Durham &amp; GTA</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 8px">
+    <a href="https://www.instagram.com/hamprify" target="_blank" rel="noopener" style="display:inline-block;background:#6c4ab0;color:#fff;padding:11px 20px;border-radius:999px;font-weight:700;text-decoration:none">🎉 Follow @hamprify</a>
+    <a href="https://www.instagram.com/goozdelish" target="_blank" rel="noopener" style="display:inline-block;background:#ef6351;color:#fff;padding:11px 20px;border-radius:999px;font-weight:700;text-decoration:none">🎂 For Cakes: @GoozDelish</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="alert" role="note"><strong>Please book ahead:</strong> Orders should be booked at least 10 days in advance whenever possible, so there is enough time to design and prepare your favours. You can still complete and submit this form for any date — this is just a friendly notice, and we will confirm availability with your quote.</div>
+
+  <div class="form-card">
+    <form id="orderForm" novalidate>
+
+      <h2 class="section">1. Your details</h2>
+
+      <label for="name">Your Name *</label>
+      <input type="text" id="name" required>
+
+      <div class="row2">
+        <div>
+          <label for="phone">Phone / WhatsApp (optional)</label>
+          <input type="tel" id="phone" placeholder="For your quote &amp; updates (optional)">
+        </div>
+        <div>
+          <label for="contact">Instagram / Facebook Username</label>
+          <input type="text" id="contact" placeholder="@username (optional)">
+        </div>
+      </div>
+
+      <label for="howFoundUs">How did you find us? *</label>
+      <select id="howFoundUs" required>
+        <option value="">Select</option>
+        <option>Instagram</option><option>Facebook</option><option>Google</option>
+        <option>Friend / Family Referral</option><option>Returning Customer</option><option>Other</option>
+      </select>
+
+      <h2 class="section">2. Event details</h2>
+
+      <div class="row2">
+        <div>
+          <label for="eventType">Event Type *</label>
+          <select id="eventType" required>
+            <option value="">Select</option>
+            <option>Birthday</option><option>Baby Shower</option><option>Graduation</option>
+            <option>Wedding</option><option>Anniversary</option><option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="eventDate">Event Date *</label>
+          <input type="date" id="eventDate" required>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div>
+          <label for="celebrantName">Celebrant's Name</label>
+          <input type="text" id="celebrantName" placeholder="Example: Ivy">
+        </div>
+        <div>
+          <label for="ageTurning">Age Turning (if birthday)</label>
+          <input type="text" id="ageTurning" placeholder="Example: 2">
+        </div>
+      </div>
+
+      <h2 class="section">3. What would you like?</h2>
+      <p class="section-note">Tick each item and add the quantity — minimum order 10 for chip bags and chocolate bar wrappers. Or skip the individual items and choose a Party Package below instead — you don't need to pick both.</p>
+
+      <div class="item-list" id="itemList">
+        <div class="item-row"><input type="checkbox" id="it-chip" data-name="Custom Chip Bags"><span class="item-name">🎈 Custom Chip Bags<small>$5 each · Minimum order 10</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Custom Chip Bags"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-kitkat" data-name="Chocolate Bar Wrappers"><span class="item-name">🍫 Chocolate Bar Wrappers<small>$4 each · Minimum order 10</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Chocolate Bar Wrappers"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-candy" data-name="Candy Boxes"><span class="item-name">🍬 Candy Boxes<small>$5 each · Filled with candies</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Candy Boxes"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-water" data-name="Water Bottle Labels"><span class="item-name">💧 Water Bottle Labels<small>$2 each label only · $3 with bottle</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Water Bottle Labels"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-gable" data-name="Gable Boxes"><span class="item-name">📦 Gable Boxes<small>$4 empty · $12 filled</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Gable Boxes"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-loot" data-name="Loot Bags"><span class="item-name">🛍️ Loot Bags<small>$3 empty · $10 filled</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Loot Bags"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-treat" data-name="Treat Wrappers (Rice Krispies etc.)"><span class="item-name">🍬 Treat Wrappers<small>Rice Krispies Treats &amp; more · $2.50 wrapper only · $4 with treat</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Treat Wrappers"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-cardtopper" data-name="Cardstock Cake Topper"><span class="item-name">🎂 Cardstock Cake Topper<small>$20 each</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Cardstock Cake Topper"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-printedtopper" data-name="Non-Edible Printed Toppers"><span class="item-name">🖨️ Non-Edible Printed Toppers<small>$20 per set</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Non-Edible Printed Toppers"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-cutouts" data-name="Custom Theme Table Cutouts"><span class="item-name">🪧 Custom Theme Table Cutouts<small>$25 each</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Custom Theme Table Cutouts"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-magnets" data-name="Fridge Magnets"><span class="item-name">🧲 Fridge Magnets<small>$10 each</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Fridge Magnets"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-easel" data-name="Easel Rental"><span class="item-name">🖼️ Easel Rental<small>$30 deposit — $20 refunded when returned without damage</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Easel Rental"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-bundle" data-name="Full Party Bundle"><span class="item-name">🎁 Full Party Bundle<small>Packages below — from $110</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Full Party Bundle"></span></div>
+        <div class="item-row"><input type="checkbox" id="it-other" data-name="Other"><span class="item-name">✨ Other<small>Write what you need in the box below</small></span><span class="qty"><input type="number" min="1" placeholder="Qty" disabled aria-label="Quantity for Other"></span></div>
+      </div>
+
+      <label for="otherItemDetail">If you picked Other, what would you like?</label>
+      <input type="text" id="otherItemDetail" placeholder="Write it here — example: matching welcome sign, gift hamper, return gifts...">
+
+      <div style="background:#fdf3ff;border:1px solid #e4d3f5;border-radius:14px;padding:16px 18px;margin-top:20px;line-height:1.65">
+        <strong style="color:#6c4ab0;font-size:16.5px">🎁 Party Packages — one theme, everything matching</strong>
+        <p style="margin:6px 0 4px;color:#7d6a72;font-size:14px">Tap one to select it — no need to tick the individual items above if you choose a package.</p>
+        <div class="radio-row"><input type="radio" name="partyPackage" id="pkg-none" value="" checked><label for="pkg-none">No package — I'll pick individual items</label></div>
+        <div class="radio-row"><input type="radio" name="partyPackage" id="pkg-sweet" value="Sweet and Simple — $110"><label for="pkg-sweet"><strong>Sweet and Simple — $110</strong><br>10 Chip Bags + 15 Chocolate Bars</label></div>
+        <div class="radio-row"><input type="radio" name="partyPackage" id="pkg-favourite" value="Party Favourite — $150"><label for="pkg-favourite"><strong>Party Favourite — $150</strong><br>10 Chip Bags + 10 Candy Boxes + 10 Water Bottle Labels + 1 Table Cutout</label></div>
+        <div class="radio-row"><input type="radio" name="partyPackage" id="pkg-deluxe" value="Party Deluxe — $250"><label for="pkg-deluxe"><strong>Party Deluxe — $250</strong><br>10 Chip Bags + 10 Chocolate Bars + 10 Water Bottle Labels + 10 Gable Boxes (filled)</label></div>
+      </div>
+
+      <label for="gableStyle">If you picked Gable Boxes / Loot Bags — empty or filled?</label>
+      <select id="gableStyle">
+        <option value="">Select (optional)</option>
+        <option>Empty — I will fill them myself</option>
+        <option>Filled with treats</option>
+        <option>Not sure — help me decide</option>
+      </select>
+
+      <div class="check-group">
+        <div class="check-row"><input type="checkbox" id="alsoCake"><label for="alsoCake">🎂 I also need a matching cake from GoozDelish</label></div>
+      </div>
+
+      <h2 class="section">4. Personalization — exactly as it will print</h2>
+
+      <div class="row2">
+        <div>
+          <label for="theme">Theme *</label>
+          <input type="text" id="theme" placeholder="Example: Bluey, Mickey Safari, Princess" required>
+        </div>
+        <div>
+          <label for="colours">Colours</label>
+          <input type="text" id="colours" placeholder="Example: pink, gold &amp; white">
+        </div>
+      </div>
+
+      <label for="printName">Name EXACTLY as it should be printed *</label>
+      <input type="text" id="printName" placeholder="Check the spelling carefully — we print exactly this" required>
+
+      <label for="printWording">Exact wording for topper / tags / banner (if any)</label>
+      <input type="text" id="printWording" placeholder="Example: Happy Birthday Ivy!">
+
+      <div class="spell-warning">⚠️ <strong>Please double-check all spellings and dates.</strong> Your favours are printed exactly as you write them here, so a spelling mistake in this form will appear in print.</div>
+
+      <label for="photoToPrint">Upload a Photo to Print on the Design (if needed)</label>
+      <input type="file" id="photoToPrint" accept="image/*">
+
+      <label for="referencePhotos">Upload Reference / Inspiration Photos</label>
+      <input type="file" id="referencePhotos" accept="image/*" multiple>
+      <p class="section-note">Reference photos are for inspiration — your design is made for your theme, so it will be inspired by the reference, not an exact copy.</p>
+
+      <h2 class="section">5. Pickup / Delivery</h2>
+
+      <div class="radio-group">
+        <div class="radio-row"><input type="radio" name="fulfilment" id="pickup" value="Pickup in Whitby" checked><label for="pickup">Pickup in Whitby</label></div>
+        <div class="radio-row"><input type="radio" name="fulfilment" id="delivery" value="Delivery"><label for="delivery">Delivery — Durham &amp; GTA (charges applicable, address below)</label></div>
+      </div>
+
+      <div id="deliveryAddressWrap">
+        <label for="deliveryAddress">Delivery Address</label>
+        <textarea id="deliveryAddress" placeholder="Street address, city, postal code"></textarea>
+      </div>
+
+      <div class="row2">
+        <div>
+          <label for="pickupDate">Date Needed By *</label>
+          <input type="date" id="pickupDate" required>
+          <div class="date-warning" id="dateWarning" role="note"></div>
+        </div>
+        <div>
+          <label for="pickupTime">Preferred Time</label>
+          <input type="time" id="pickupTime">
+        </div>
+      </div>
+
+      <h2 class="section">6. Anything else?</h2>
+
+      <label for="additionalInformation">Additional Information</label>
+      <textarea id="additionalInformation" placeholder="Anything else we should know — bundle details, allergies for filled boxes, special requests..."></textarea>
+
+      <div class="notice">
+        <div class="check-row">
+          <input type="checkbox" id="agreement" required>
+          <label for="agreement">I understand my order is confirmed only after I receive my quote and pay the 50% deposit, and that the names, spellings and dates above are correct as I want them printed. *</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit" id="submitButton">Submit Order Request</button>
+    </form>
+
+    <div id="successMessage">
+      <strong style="font-size:19px">Thank you for placing your order with us! 💕</strong><br><br>
+      Kindly message us back for your quote. A <strong>50% deposit</strong> is required for order confirmation.<br>
+      Do follow our page: <a href="https://www.instagram.com/hamprify" target="_blank" rel="noopener">@hamprify</a>
+      <div class="summary" id="orderSummary"></div>
+      🎂 <strong>And what's a party without the cake?</strong> Follow <a href="https://www.instagram.com/goozdelish" target="_blank" rel="noopener">@GoozDelish</a> — You bring the party, I'll bring the cake!
+    </div>
+  </div>
+</main>
+
+<footer>
+  <strong>hamprify</strong> • Party Favours &amp; Gifts • Whitby, Ontario<br>
+  Follow us: <a href="https://www.instagram.com/hamprify" target="_blank" rel="noopener">@hamprify on Instagram</a> •
+  <a href="https://www.instagram.com/goozdelish" target="_blank" rel="noopener">@GoozDelish on Instagram</a>
+</footer>
+
+<script>
+/* CONNECTION: when the hamprify Apps Script is deployed (see
+   ~/workspace/hamprify-website/apps-script/Code.gs), paste its Web app URL
+   below as SCRIPT_URL. While SCRIPT_URL is empty the form runs in PREVIEW
+   mode: submitting shows the success screen but sends nothing.
+   Once set, submitting POSTs the order (with photos) to the
+   "Hamprify Orders" tab of the GoozDelish Customer Orders sheet. */
+const SCRIPT_URL = "";
+
+/* Tick an item -> enable its quantity box */
+document.querySelectorAll('#itemList .item-row').forEach(function(row){
+  var box = row.querySelector('input[type=checkbox]');
+  var qty = row.querySelector('.qty input');
+  box.addEventListener('change', function(){
+    qty.disabled = !box.checked;
+    row.classList.toggle('checked', box.checked);
+    if (box.checked) { qty.focus(); } else { qty.value = ''; }
+  });
+});
+
+/* Delivery -> show address box */
+document.querySelectorAll('input[name=fulfilment]').forEach(function(r){
+  r.addEventListener('change', function(){
+    document.getElementById('deliveryAddressWrap').style.display =
+      document.getElementById('delivery').checked ? 'block' : 'none';
+  });
+});
+
+/* Non-blocking 10-day notice only: shows/hides a warning, never blocks submit */
+document.getElementById('pickupDate').addEventListener('change', function(){
+  var warning = document.getElementById('dateWarning');
+  if (!this.value) { warning.style.display = 'none'; warning.textContent = ''; return; }
+  var picked = new Date(this.value + 'T00:00:00');
+  var today = new Date(); today.setHours(0,0,0,0);
+  var daysAway = Math.round((picked - today) / 86400000);
+  if (daysAway < 10) {
+    warning.textContent = 'Friendly notice: this date is less than 10 days away. We usually ask for at least 10 days so your favours can be designed and prepared properly. You can still submit this form — we will confirm with your quote whether this date is possible.';
+    warning.style.display = 'block';
+  } else {
+    warning.style.display = 'none'; warning.textContent = '';
+  }
+});
+
+function fileToBase64(file){
+  return new Promise(function(resolve, reject){
+    var reader = new FileReader();
+    reader.onload = function(){ resolve(reader.result); };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+async function packFile(file){
+  var base64 = await fileToBase64(file);
+  return { fileName: file.name, mimeType: file.type || 'image/jpeg', data: base64.split(',')[1] };
+}
+
+document.getElementById('orderForm').addEventListener('submit', async function(event){
+  event.preventDefault();
+  var form = event.target;
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+
+  var picked = [];
+  var items = [];
+  document.querySelectorAll('#itemList .item-row').forEach(function(row){
+    var box = row.querySelector('input[type=checkbox]');
+    if (box.checked) {
+      var qty = row.querySelector('.qty input').value;
+      picked.push('• ' + box.dataset.name + (qty ? ' × ' + qty : ''));
+      items.push({ name: box.dataset.name, qty: qty });
+    }
+  });
+  var pkg = document.querySelector('input[name=partyPackage]:checked').value;
+  if (!picked.length && !pkg) { alert('Please tick at least one item, or choose a Party Package.'); return; }
+
+  /* If connected, send the order to the Hamprify Orders sheet tab first */
+  if (SCRIPT_URL) {
+    var submitButton = document.getElementById('submitButton');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+    try {
+      var photoToPrint = null;
+      var ptp = document.getElementById('photoToPrint');
+      if (ptp.files && ptp.files.length) photoToPrint = await packFile(ptp.files[0]);
+
+      var referencePhotos = [];
+      var refs = document.getElementById('referencePhotos');
+      if (refs.files) {
+        for (var i = 0; i < refs.files.length; i++) referencePhotos.push(await packFile(refs.files[i]));
+      }
+
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          name: document.getElementById('name').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          contact: document.getElementById('contact').value.trim(),
+          howFoundUs: document.getElementById('howFoundUs').value,
+          eventType: document.getElementById('eventType').value,
+          eventDate: document.getElementById('eventDate').value,
+          celebrantName: document.getElementById('celebrantName').value.trim(),
+          ageTurning: document.getElementById('ageTurning').value.trim(),
+          items: pkg ? [{ name: 'PACKAGE: ' + pkg, qty: '' }].concat(items) : items,
+          otherItemDetail: document.getElementById('otherItemDetail').value.trim(),
+          gableStyle: document.getElementById('gableStyle').value,
+          alsoCake: document.getElementById('alsoCake').checked,
+          theme: document.getElementById('theme').value.trim(),
+          colours: document.getElementById('colours').value.trim(),
+          printName: document.getElementById('printName').value.trim(),
+          printWording: document.getElementById('printWording').value.trim(),
+          photoToPrint: photoToPrint,
+          referencePhotos: referencePhotos,
+          fulfilment: document.querySelector('input[name=fulfilment]:checked').value,
+          deliveryAddress: document.getElementById('deliveryAddress').value.trim(),
+          pickupDate: document.getElementById('pickupDate').value,
+          pickupTime: document.getElementById('pickupTime').value,
+          additionalInformation: document.getElementById('additionalInformation').value.trim(),
+          agreement: document.getElementById('agreement').checked
+        })
+      });
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong while submitting. Please try again.');
+      submitButton.disabled = false;
+      submitButton.textContent = 'Submit Order Request';
+      return;
+    }
+  }
+
+  var fulfil = document.querySelector('input[name=fulfilment]:checked').value;
+  var summary =
+    'Name: ' + document.getElementById('name').value.trim() + '\n' +
+    'Event: ' + document.getElementById('eventType').value + ' — ' + document.getElementById('eventDate').value + '\n' +
+    'Theme: ' + document.getElementById('theme').value.trim() + '\n' +
+    'Name to print: ' + document.getElementById('printName').value.trim() + '\n' +
+    (pkg ? 'Package: ' + pkg + '\n' : '') +
+    (picked.length ? 'Items:\n' + picked.join('\n') + '\n' : '') +
+    fulfil + ' — needed by ' + document.getElementById('pickupDate').value +
+    (document.getElementById('otherItemDetail').value.trim() ? '\nOther item requested: ' + document.getElementById('otherItemDetail').value.trim() : '') +
+    (document.getElementById('alsoCake').checked ? '\n+ Also needs a matching GoozDelish cake 🎂' : '');
+
+  document.getElementById('orderSummary').textContent = summary;
+  form.style.display = 'none';
+  document.getElementById('successMessage').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>
